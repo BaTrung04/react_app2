@@ -65,9 +65,6 @@ const AddUserInfo = (props) => {
     const [address, setAddress] = useState('By Ba Trung');
     const [age, setAge] = useState('');
 
-    // const    handleClickMe =(event) => {
-    //         setState({})
-    //     }
     const handleOnChangeInput = (event) => {
         setName(event.target.value)
 

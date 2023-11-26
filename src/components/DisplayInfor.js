@@ -1,5 +1,5 @@
 import { react } from "@babel/types";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const DisplayInfor = (props) => {
     const { listUser } = props;
@@ -10,6 +10,15 @@ const DisplayInfor = (props) => {
     const handleShowHideListUser = () => {
         setShowHideListUser(!isShowHideListUser);
     }
+    // [] ko tham so chi chay 1 lan || [tham so] chay vo tan
+    useEffect(
+        () => {
+            if (listUser.length === 0) {
+                alert('you deleted all list users')
+            }
+            console.log('call me effect')
+        }, [listUser]
+    )
     return (
         <div className="display-info-container">
             <div>
