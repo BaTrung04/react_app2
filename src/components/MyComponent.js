@@ -2,7 +2,7 @@
 //function component
 import React from "react";
 import AddUserInfo from "./AddUserInfo";
-import DisplayInfo from "./DisplayInfo";
+import DisplayInfor from "./DisplayInfor";
 class MyComponent extends React.Component {
 
     state = {
@@ -37,7 +37,7 @@ class MyComponent extends React.Component {
                     handleAddNewUser={this.handleAddNewUser}
                 />
                 <br />
-                <DisplayInfo
+                <DisplayInfor
                     listUser={this.state.listUser}
                     handleDeleteUser={this.handleDeleteUser}
                 />
