@@ -40,7 +40,7 @@ class MyComponent extends React.Component {
                 <DisplayInfo
                     listUser={this.state.listUser}
                     handleDeleteUser={this.handleDeleteUser}
-                />.
+                />
             </div>
 
         )
