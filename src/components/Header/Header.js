@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand href="#home">REACT_BTrung</Navbar.Brand>
+                <NavLink to="/" className='navbar-brand'>REACT_BTrung</NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -18,13 +18,17 @@ const Header = () => {
                         <NavLink to="/admins" className='nav-link'>Admin</NavLink>
                     </Nav>
                     <Nav>
-                        <NavDropdown title="Settings" id="basic-nav-dropdown">
+
+                        <button className='btn-Login'>Log in</button>
+                        <button className='btn-Signup'>Sign up</button>
+
+                        {/* <NavDropdown title="Settings" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Log in</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">
                                 Log out
                             </NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Profile</NavDropdown.Item>
-                        </NavDropdown>
+                        </NavDropdown> */}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

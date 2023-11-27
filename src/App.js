@@ -2,10 +2,12 @@ import './App.scss';
 import Header from './components/Header/Header';
 import { ButtonToolbar } from 'react-bootstrap';
 import { Outlet, Link } from "react-router-dom";
+import HomePage from './components/Home/HomePage.js';
 
 
 const App = () => {
   return (
+
     <div className='app-container'>
       <div className='header-container'>
         <Header />
