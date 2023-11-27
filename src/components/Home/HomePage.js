@@ -7,7 +7,7 @@ const HomePage = (props) => {
 
             <Container>
                 <div className='homepage-title'>
-                    <video autoPlay muted loop  >
+                    <video autoPlay muted loop className='video-homepage' >
                         <source
                             src={videoHomepage}
                             type='video/mp4'
