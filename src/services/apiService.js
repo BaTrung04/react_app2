@@ -23,8 +23,18 @@ const putUpdateUser = (id, username, role, image) => {
     data.append('userImage', image);
     return axios.put('api/v1/participant', data);
 }
-
+//api all user
 const getAllUsers = () => {
     return axios.get('api/v1/participant/all');
 }
-export { postCreateNewUser, getAllUsers, putUpdateUser }
+
+// api xoa
+const DeleteUser = (userID) => {
+    return axios.delete('api/v1/participant', { data: { id: userID } });
+}
+
+
+
+
+
+export { postCreateNewUser, getAllUsers, putUpdateUser, DeleteUser }

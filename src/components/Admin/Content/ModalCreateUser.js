@@ -63,7 +63,7 @@ const ModalCreateUser = (props) => {
 
 
         let data = await postCreateNewUser(email, password, username, role, image)
-        console.log(">> interceptor: ", data)
+        //console.log(">> interceptor: ", data)
         if (data && data.EC === 0) {
             toast.success(data.EM);
             handleClose();
@@ -72,7 +72,6 @@ const ModalCreateUser = (props) => {
         if (data && data.EC !== 0) {
             toast.error(data.EM);
         }
-
 
     }
     return (
