@@ -6,12 +6,15 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { getAllUsers } from "../../../services/apiService";
 import ModalUpdateUser from "./ModalUpdateUser";
+import ModalViewUser from "./ModalViewUser"
 
 
 const ManageUser = (props) => {
     const [showModalCreateUser, setShowModalCreateUser] = useState(false);
     const [showModalUpdateUser, setShowModalUpdateUser] = useState(false);
+    const [showModalViewUser, setShowModalViewUser] = useState(false);
     const [dataUpdate, setDataUpdate] = useState({});
+    const [dataView, setDataView] = useState({});
     // tao list users nguoi dung
     const [listUsers, setListUsers] = useState([]);
     //componentDidMount
@@ -26,15 +29,26 @@ const ManageUser = (props) => {
             setListUsers(res.DT)
         }
     }
-
+    //btn update
     const handleClickBtnUpdate = (user) => {
         console.log('>>>check user: '.user)
         setShowModalUpdateUser(true);
         setDataUpdate(user);
     }
 
+    //btn view
+    const handleClickBtnView = (user) => {
+        setShowModalViewUser(true);
+        setDataView(user);
+
+    }
+    //reset data ve {}
     const resetUpdateData = () => {
         setDataUpdate({});
+    }
+
+    const resetViewData = () => {
+        setDataView({});
     }
     return (
 
@@ -55,6 +69,7 @@ const ManageUser = (props) => {
                     <TableUser
                         listUsers={listUsers}
                         handleClickBtnUpdate={handleClickBtnUpdate}
+                        handleClickBtnView={handleClickBtnView}
                     />
                 </div>
                 <ModalCreateUser
@@ -68,7 +83,12 @@ const ManageUser = (props) => {
                     dataUpdate={dataUpdate}
                     fetchListUser={fetchListUser}
                     resetUpdateData={resetUpdateData}
-
+                />
+                <ModalViewUser
+                    show={showModalViewUser}
+                    setShow={setShowModalViewUser}
+                    dataView={dataView}
+                    resetUpdateData={resetViewData}
                 />
             </div>
         </div>
