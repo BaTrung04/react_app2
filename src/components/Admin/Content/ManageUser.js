@@ -2,6 +2,7 @@ import ModalCreateUser from "./ModalCreateUser";
 import { FaLeaf, FaPlusCircle } from "react-icons/fa";
 import './ManageUser.scss';
 import { useState } from "react";
+import TableUser from "./TableUser";
 
 
 const ManageUser = (props) => {
@@ -22,7 +23,7 @@ const ManageUser = (props) => {
                     </button>
                 </div>
                 <div className="table-users-container">
-                    table user
+                    <TableUser />
                 </div>
                 <ModalCreateUser
                     show={showModalCreateUser}
