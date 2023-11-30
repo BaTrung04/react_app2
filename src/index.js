@@ -6,8 +6,6 @@ import store from './redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter,
-  Routes,
-  Route
 } from "react-router-dom";
 import Layout from './Layout';
 
