@@ -1,7 +1,12 @@
 import videoHomepage from '../../assets/hero.mp4';
 import Container from 'react-bootstrap/Container';
+import { useSelector } from 'react-redux';
 
 const HomePage = (props) => {
+
+    const isAuthenticated = useSelector(state => state.user.isAuthenticated)
+    const account = useSelector(state => state.user.account)
+
     return (
         <div className='homepage-container'>
 
