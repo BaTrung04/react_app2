@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
 import { doLogin } from '../../redux/action/userAction';
-
+import { ImSpinner10 } from "react-icons/im";
 
 
 const Login = (props) => {
@@ -16,6 +16,7 @@ const Login = (props) => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState(false);
 
     //check email
     const validateEmail = (email) => {
@@ -36,16 +37,19 @@ const Login = (props) => {
             toast.error('Invalid password')
             return;
         }
+        setIsLoading(true);
         //submit apis
         let data = await postLogin(email, password);
         if (data && +data.EC === 0) {
-            //actions (khai bao trong react component)
             dispatch(doLogin(data))
             toast.success(data.EM);
+            setIsLoading(false);
             navigate('/')
         }
         if (data && +data.EC !== 0) {
             toast.error(data.EM);
+            setIsLoading(false);
+
         }
     }
 
@@ -87,6 +91,7 @@ const Login = (props) => {
                             <span className='icons-eye '
                                 onClick={() => setIsShowPassword(false)}>
                                 <FaEye />
+
                             </span>
                             :
                             <span className='icons-eye '
@@ -102,8 +107,10 @@ const Login = (props) => {
                     <button
                         className='btn-submit'
                         onClick={() => handleLogin()}
+                        disabled={isLoading}
                     >
-                        Login
+                        {isLoading === true && <ImSpinner10 className="loader-icon" />}
+                        <span>Login</span>
                     </button>
                 </div>
                 <div className='text-left' >
