@@ -1,9 +1,24 @@
 .login-container {
 
-
     .header {
         height: 45px;
         text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+        margin-right: 200px;
+
+        button {
+            border: 1px solid;
+            padding: 3px 15px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+
+            &:hover {
+                background-color: white;
+            }
+        }
     }
 
     .title {
@@ -31,6 +46,11 @@
             border: none;
             background-color: black;
             color: white;
+            width: 100%;
+        }
+
+        .text-left {
+            cursor: pointer;
         }
     }
 
