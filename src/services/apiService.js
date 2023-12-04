@@ -74,8 +74,6 @@ const postSubmitQuiz = (data) => {
 }
 
 
-
-
 export {
     postCreateNewUser, getAllUsers, putUpdateUser,
     DeleteUser, getUserWithPaginate, postLogin, postRegister,
