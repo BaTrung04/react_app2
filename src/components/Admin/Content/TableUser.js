@@ -6,7 +6,7 @@ const TableUser = (props) => {
 
     return (
         <>
-            <table className="table table-hover table-bordered">
+            <table className="table table-hover table-bordered mt-2">
                 <thead>
                     <tr>
                         <th scope="col">Id</th>

@@ -67,12 +67,12 @@ const getDataQuiz = (id) => {
 }
 
 // api nop bai
-
 const postSubmitQuiz = (data) => {
     return axios.post(`api/v1/quiz-submit`, { ...data })
 
 }
 
+//api them quiz
 const postCreateNewQuiz = (description, name, difficulty, image) => {
     const data = new FormData();
     data.append('description', description);
@@ -83,8 +83,12 @@ const postCreateNewQuiz = (description, name, difficulty, image) => {
 
 }
 
+const getAllQuizForAdmin = () => {
+    return axios.get(`/api/v1/quiz/all`)
+}
+
 export {
     postCreateNewUser, getAllUsers, putUpdateUser,
     DeleteUser, getUserWithPaginate, postLogin, postRegister,
-    getQuizByUser, getDataQuiz, postSubmitQuiz, postCreateNewQuiz
+    getQuizByUser, getDataQuiz, postSubmitQuiz, postCreateNewQuiz, getAllQuizForAdmin
 }
