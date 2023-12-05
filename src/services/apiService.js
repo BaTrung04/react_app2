@@ -95,7 +95,7 @@ const putUpdateQuizForAdmin = (id, name, description, difficulty, image) => {
     data.append('name', name);
     data.append('difficulty', difficulty);
     data.append('quizImage', image);
-    return axios.post('/api/v1/quiz', data);
+    return axios.put('/api/v1/quiz', data);
 }
 
 const DeleteQuizForAdmin = (id) => {

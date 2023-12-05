@@ -24,11 +24,20 @@
                 padding-bottom: 15px;
 
                 .label-upload {
-                    height: 30px;
-                    border: 1px solid red;
-                    padding: 0px 10px;
+                    // height: 30px;
+                    // border: 1px solid red;
+                    // padding: 0px 10px;
+                    // margin-right: 5px;
+                    // border-radius: 5px;
+
                     margin-right: 5px;
-                    border-radius: 5px;
+                    cursor: pointer;
+                    color: #9068ff;
+                    font-size: 25px;
+
+                    &:hover {
+                        color: #4400ff;
+                    }
                 }
             }
 
@@ -37,6 +46,11 @@
                     font-size: 25px;
                     margin-bottom: 18px;
                     cursor: pointer;
+                    color: #2596ff;
+
+                    &:hover {
+                        color: #0989ff;
+                    }
                 }
 
                 .icon-remove {
@@ -44,6 +58,11 @@
                     font-size: 25px;
                     margin-bottom: 18px;
                     cursor: pointer;
+                    color: #e8771c;
+
+                    &:hover {
+                        color: #ff7608;
+                    }
                 }
             }
         }
@@ -68,12 +87,22 @@
                 .icon-add {
                     font-size: 25px;
                     cursor: pointer;
+                    color: #2596ff;
+
+                    &:hover {
+                        color: #0989ff;
+                    }
                 }
 
                 .icon-remove {
                     margin-left: 10px;
                     font-size: 25px;
                     cursor: pointer;
+                    color: #e8771c;
+
+                    &:hover {
+                        color: #ff7608;
+                    }
                 }
             }
         }

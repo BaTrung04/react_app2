@@ -9,7 +9,7 @@ import _ from 'lodash';
 
 
 const ModalEditQuiz = (props) => {
-    const { show, setShow, dataUpdate, setDataUpdate } = props;
+    const { show, setShow, dataUpdate } = props;
     //const [show, setShow] = useState(false);
     const handleClose = () => {
         setShow(false)
@@ -40,6 +40,8 @@ const ModalEditQuiz = (props) => {
                 setPreviewImage(`data:image/jpeg;base64,${dataUpdate.image}`);
 
             }
+            console.log('>>check render: dataupdate', dataUpdate)
+
 
         }
     }, [dataUpdate]);
