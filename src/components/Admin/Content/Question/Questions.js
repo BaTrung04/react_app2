@@ -6,6 +6,7 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 import { RiImageAddFill } from "react-icons/ri";
 import _, { iteratee } from 'lodash';
 import { v4 as uuidv4 } from 'uuid';
+import Lightbox from "react-awesome-lightbox";
 
 const Questions = (props) => {
     const options = [
@@ -19,19 +20,25 @@ const Questions = (props) => {
         [
             {
                 id: uuidv4(),
-                description: 'questions 1',
+                description: '',
                 imageFile: '',
                 imageName: '',
                 answers: [
                     {
                         id: uuidv4(),
-                        description: 'answers 1',
+                        description: '',
                         isCorrect: false
                     }
                 ]
             },
         ]
     );
+
+    const [isPreviewImage, setIsPreviewImage] = useState(false);
+    const [dataImagePreview, setDataImagePreview] = useState({
+        title: '',
+        url: ''
+    });
 
     const handleAddRemoveQuestion = (type, id) => {
         if (type === 'ADD') {
@@ -71,11 +78,8 @@ const Questions = (props) => {
             };
 
             let index = questionsClone.findIndex(item => item.id === questionId);
-            console.log('index: ', index)
             questionsClone[index].answers.push(newAnswers);
             setQuestion(questionsClone);
-
-            //  setQuestion([...questions, newQuestion]);
         }
         if (type === 'REMOVE') {
             let index = questionsClone.findIndex(item => item.id === questionId);
@@ -83,15 +87,65 @@ const Questions = (props) => {
             setQuestion(questionsClone);
 
         }
-        // if (type === 'REMOVE') {
-        //     let questionsClone = questions;
-        //     questionsClone = questionsClone.filter(item => item.id !== id);
-        //     setQuestion(questionsClone);
-
-        // }
-        console.log('>>check: ', type, questionId, answerId)
     }
-    console.log('question:', questions)
+
+    const handleOnChange = (type, questionId, value) => {
+        if (type === 'QUESTION') {
+            let questionsClone = _.cloneDeep(questions);
+            let index = questionsClone.findIndex(item => item.id === questionId);
+            if (index > -1) {
+                questionsClone[index].description = value;
+                setQuestion(questionsClone);
+            }
+
+
+        }
+    }
+
+    const handleOnChangeFIleQuestion = (questionId, event) => {
+        let questionsClone = _.cloneDeep(questions);
+        let index = questionsClone.findIndex(item => item.id === questionId);
+        if (index > -1 && event.target && event.target.files && event.target.files[0]) {
+            questionsClone[index].imageFile = event.target.files[0];
+            questionsClone[index].imageName = event.target.files[0].name;
+            setQuestion(questionsClone);
+        }
+    }
+
+    const handleAnswerQuestion = (type, answerId, questionId, value) => {
+        let questionsClone = _.cloneDeep(questions);
+        let index = questionsClone.findIndex(item => item.id === questionId);
+        if (index > -1) {
+            questionsClone[index].answers = questionsClone[index].answers.map(answer => {
+                if (answer.id === answerId) {
+                    if (type === 'CHECKBOX') {
+                        answer.isCorrect = value;
+                    }
+                    if (type === "INPUT") {
+                        answer.description = value;
+                    }
+                }
+                return answer;
+            })
+            setQuestion(questionsClone);
+        }
+    }
+
+    const handleSubmitQuestionForQuiz = () => {
+        console.log('question:', questions)
+    }
+
+    const handlePreviewImage = (questionId) => {
+        let questionsClone = _.cloneDeep(questions);
+        let index = questionsClone.findIndex(item => item.id === questionId);
+        if (index > -1) {
+            setDataImagePreview({
+                url: URL.createObjectURL(questionsClone[index].imageFile),
+                title: questionsClone[index].imageName
+            })
+            setIsPreviewImage(true)
+        }
+    }
     return (
         <div className="question-container">
             <div className='title'>
@@ -122,13 +176,28 @@ const Questions = (props) => {
                                             className="form-control"
                                             placeholder="name@example.com"
                                             value={question.description}
+                                            onChange={(event) => handleOnChange('QUESTION', question.id, event.target.value)}
                                         />
                                         <label >Question{index + 1}'s description</label>
                                     </div>
                                     <div className='group-upload'>
-                                        <label ><RiImageAddFill className='label-upload' /></label>
-                                        <input type={'file'} hidden />
-                                        <span>0 file is upload</span>
+                                        <label htmlFor={`${question.id}`} >
+                                            <RiImageAddFill className='label-upload' />
+                                        </label>
+                                        <input
+                                            id={`${question.id}`}
+                                            type={'file'}
+                                            hidden
+                                            onChange={(event) => handleOnChangeFIleQuestion(question.id, event)}
+                                        />
+                                        <span>{question.imageName ?
+                                            <span style={{ cursor: "pointer" }}
+                                                onClick={() => handlePreviewImage(question.id)}>
+                                                {question.imageName}
+                                            </span>
+                                            :
+                                            '0 file is upload'
+                                        }</span>
                                     </div>
                                     <div className='btn-add'>
                                         <span onClick={() => handleAddRemoveQuestion('ADD', '')}> <AiOutlinePlusCircle className='icon-add' /></span>
@@ -139,14 +208,15 @@ const Questions = (props) => {
                                         }
                                     </div>
                                 </div>
-                                {
-                                    question.answers && question.answers.length > 0
+                                {question.answers && question.answers.length > 0
                                     && question.answers.map((answer, index) => {
                                         return (
                                             <div key={answer.id} className='answers-content'>
                                                 <input
                                                     className="form-check-input iscorrect"
                                                     type="checkbox"
+                                                    checked={answer.isCorrect}
+                                                    onChange={(event) => handleAnswerQuestion('CHECKBOX', answer.id, question.id, event.target.checked)}
                                                 />
                                                 <div className="form-floating answer-name">
                                                     <input
@@ -154,6 +224,9 @@ const Questions = (props) => {
                                                         className="form-control"
                                                         placeholder="name@example.com"
                                                         value={answer.description}
+                                                        onChange={(event) => handleAnswerQuestion('INPUT', answer.id, question.id, event.target.value)}
+
+
                                                     />
                                                     <label >Answers {index + 1}</label>
                                                 </div>
@@ -173,11 +246,28 @@ const Questions = (props) => {
                                     })
                                 }
 
+
+
                             </div>
                         )
                     })
                 }
+                {
+                    questions && questions.length > 0 &&
+                    <div>
+                        <button
+                            onClick={() => handleSubmitQuestionForQuiz()}
+                            className='btn btn-warning'>Save Questions</button>
+                    </div>
 
+                }
+                {isPreviewImage === true &&
+                    <Lightbox
+                        image={dataImagePreview.url}
+                        title={dataImagePreview.title}
+                        onClose={() => setIsPreviewImage(false)}
+                    />
+                }
 
             </div>
 
