@@ -24,14 +24,15 @@ const TableQuiz = (props) => {
         if (res && res.EC === 0) {
             setListQuiz(res.DT)
         }
-        // console.log('res: ', res)
     }
 
     const handleDelete = (quiz) => {
+        console.log('quiz', quiz)
         setDataDelete(quiz);
         setShowModalDeleteQuiz(true);
     }
     const handleClickBtnEditQuiz = (quiz) => {
+        console.log('quiz:', quiz)
         setShowModalUpdateQuiz(true);
         setDataUpdate(quiz);
     }
@@ -61,11 +62,11 @@ const TableQuiz = (props) => {
                                     <td style={{ display: "flex", gap: "5px" }}>
                                         <button
                                             className="btn btn-warning "
-                                            onClick={() => handleClickBtnEditQuiz()}
+                                            onClick={() => handleClickBtnEditQuiz(item)}
                                         >Edit</button>
                                         <button
                                             className="btn btn-danger"
-                                            onClick={() => handleDelete()}
+                                            onClick={() => handleDelete(item)}
                                         >Delete</button>
                                     </td>
                                 </tr>

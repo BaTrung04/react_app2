@@ -77,6 +77,8 @@ const SideBar = (props) => {
                             </MenuItem>
                             <MenuItem>
                                 Quản lý câu hỏi
+                                <Link to='/admins/manage-questions' />
+
                             </MenuItem>
                         </SubMenu>
 

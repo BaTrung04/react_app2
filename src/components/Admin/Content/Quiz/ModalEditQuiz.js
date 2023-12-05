@@ -42,7 +42,7 @@ const ModalEditQuiz = (props) => {
             }
 
         }
-    }, [props.dataUpdate]);
+    }, [dataUpdate]);
     const handleUploadImage = (event) => {
         if (event.target && event.target.files && event.target.files[0]) {
             setPreviewImage(URL.createObjectURL(event.target.files[0]));
@@ -83,17 +83,16 @@ const ModalEditQuiz = (props) => {
                 className='modal-add-user'
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Update a user</Modal.Title>
+                    <Modal.Title>Update A Quiz</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form className="row g-3">
                         <div className="col-md-6">
                             <label className="form-label">Description</label>
                             <input
-                                type="description"
+                                type="text"
                                 className="form-control"
                                 value={description}
-                                disabled
                                 onChange={(event) => setDescription(event.target.value)}
                             />
                         </div>
@@ -103,15 +102,16 @@ const ModalEditQuiz = (props) => {
                                 type="name"
                                 className="form-control"
                                 value={name}
-                                disabled
+
                                 onChange={(event) => setName(event.target.value)}
                             />
                         </div>
                         <div className="col-md-4">
                             <label className="form-label">Role</label>
                             <select className="form-select" onChange={(event) => setType(event.target.value)}>
-                                <option value='USER'>d</option>
-                                <option value='ADMIN' >ADMIN</option>
+                                <option value='EASY'>EASY</option>
+                                <option value='MEDIUM' >MEDIUM</option>
+                                <option value='HARD' >HARD</option>
                             </select>
                         </div>
                         <div className='col-md-12'>
