@@ -9,6 +9,7 @@ import { doLogin } from '../../redux/action/userAction';
 import { ImSpinner10 } from "react-icons/im";
 
 
+
 const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -52,6 +53,11 @@ const Login = (props) => {
 
         }
     }
+    const handleKeyDown = (event) => {
+        if (event && event.key === "Enter") {
+            handleLogin();
+        }
+    }
 
     return (
         <div className="login-container">
@@ -86,6 +92,7 @@ const Login = (props) => {
                             value={password}
                             placeholder="password"
                             onChange={(Event) => setPassword(Event.target.value)}
+                            onKeyDown={(event) => handleKeyDown(event)}
                         />
                         {isShowPassword ?
                             <span className='icons-eye '
