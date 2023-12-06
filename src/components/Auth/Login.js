@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
 import { doLogin } from '../../redux/action/userAction';
 import { ImSpinner10 } from "react-icons/im";
+import Language from '../Header/Language';
 
 
 
@@ -64,6 +65,7 @@ const Login = (props) => {
             <div className='header'>
                 <span>Don't have an account yet?</span>
                 <button onClick={() => navigate('/register')}>Sign up</button>
+                <Language />
             </div>
 
             <div className='title col-3 mx-auto'>
