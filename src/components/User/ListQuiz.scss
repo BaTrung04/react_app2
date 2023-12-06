@@ -1,5 +1,8 @@
 .list-quiz-container {
     display: flex;
     justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
 
 }

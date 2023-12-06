@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import { ButtonToolbar } from 'react-bootstrap';
 import { Outlet, Link } from "react-router-dom";
 import HomePage from './components/Home/HomePage.js';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 
 const App = () => {
@@ -17,7 +18,9 @@ const App = () => {
 
         </div>
         <div className='app-content'>
-          <Outlet />
+          <PerfectScrollbar>
+            <Outlet />
+          </PerfectScrollbar>
         </div>
       </div>
 
