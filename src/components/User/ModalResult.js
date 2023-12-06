@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 const ModalResult = (props) => {
     const { show, setShow, dataModalResult } = props;
     const handleClose = () => setShow(false);
-    console.log(dataModalResult)
+    // console.log(dataModalResult)
     return (
         <>
             <Modal
