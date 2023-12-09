@@ -3,7 +3,45 @@
         "title1": " Forms that break the norm ",
         "title2": "Get more data—like signups, feedback, and anything else—with forms designed to be refreshingly different.",
         "title3": {
-            "login": "Get started—it's free"
+            "login": "Get started—it's free",
+            "doing": "Doing Quiz Now"
+        }
+    },
+    "header": {
+        "title": "REACT_BTrung",
+        "home": "Home",
+        "users": "Users",
+        "admin": "Admin",
+        "title1": {
+            "setting": "Setting",
+            "profile": "Profile",
+            "logout": "Log Out"
+        },
+        "login": "Log in",
+        "signup": "Sign up"
+    },
+    "login": {
+        "header": "Don't have an account yet?",
+        "signup": "Sign up",
+        "title": "Hello, who’s this?",
+        "form": {
+            "email": "Email",
+            "password": "Password",
+            "forgotpassword": "Forgot password ?",
+            "login": "Login",
+            "homepage": "Go to Homepage"
+        }
+    },
+    "register": {
+        "header": "Already have an account ?",
+        "login": "Login",
+        "title": "Start your journey?",
+        "form": {
+            "email": "Email",
+            "password": "Password",
+            "username": "Username",
+            "register": "Register",
+            "homepage": "Go to Homepage"
         }
     }
 }

@@ -3,7 +3,45 @@
         "title1": " Những hình thức phá vỡ quy chuẩn ",
         "title2": "Nhận được nhiều dữ liệu hơn—như đăng ký, phản hồi và bất kỳ dữ liệu nào khác—với các biểu mẫu được thiết kế hoàn toàn khác biệt.",
         "title3": {
-            "login": "Bắt đầu—miễn phí"
+            "login": "Bắt đầu—miễn phí",
+            "doing": "Làm bài kiểm tra ngay bây giờ"
+        }
+    },
+    "header": {
+        "title": "REACT_BTrung",
+        "home": "Trang chủ",
+        "users": "Người dùng",
+        "admin": "Quản trị viên",
+        "title1": {
+            "setting": "Cài đặt",
+            "profile": "Thông tin người dùng",
+            "logout": "Đăng xuất"
+        },
+        "login": "Đăng nhập",
+        "signup": "Đăng ký"
+    },
+    "login": {
+        "header": "Vẫn chưa có tài khoản?",
+        "signup": "Đăng ký",
+        "title": "Xin chào, bạn là ai?",
+        "form": {
+            "email": "E-Email",
+            "password": "Mật khẩu",
+            "forgotpassword": "Quên mật khẩu ?",
+            "login": "Đăng nhập",
+            "homepage": "Về trang chủ"
+        }
+    },
+    "register": {
+        "header": "Bạn đã có sẵn một tài khoản ?",
+        "login": "Đăng nhập",
+        "title": "Bắt đầu cuộc hành trình của bạn?",
+        "form": {
+            "email": "E-Email",
+            "password": "Mật khẩu",
+            "username": "Tên người dùng",
+            "register": "Đăng ký",
+            "homepage": "Về trang chủ"
         }
     }
 }

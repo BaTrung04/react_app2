@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { doLogin } from '../../redux/action/userAction';
 import { ImSpinner10 } from "react-icons/im";
 import Language from '../Header/Language';
+import { useTranslation, Trans } from 'react-i18next';
 
 
 
@@ -19,6 +20,8 @@ const Login = (props) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
+
+    const { t } = useTranslation();
 
     //check email
     const validateEmail = (email) => {
@@ -63,8 +66,8 @@ const Login = (props) => {
     return (
         <div className="login-container">
             <div className='header'>
-                <span>Don't have an account yet?</span>
-                <button onClick={() => navigate('/register')}>Sign up</button>
+                <span>{t('login.header')}</span>
+                <button onClick={() => navigate('/register')}>{t('login.signup')}</button>
                 <Language />
             </div>
 
@@ -72,11 +75,11 @@ const Login = (props) => {
                 REACT_BTrung
             </div>
             <div className='welcome col-3 mx-auto'>
-                Hello, who’s this?
+                {t('login.title')}
             </div>
             <div className='content-form col-3 mx-auto'>
                 <div className='form-group'>
-                    <label>Email</label>
+                    <label>{t('login.form.email')}</label>
                     <input
                         type={'email'}
                         className='form-control'
@@ -86,7 +89,7 @@ const Login = (props) => {
                     />
                 </div>
                 <div className='form-group'>
-                    <label>Password</label>
+                    <label>{t('login.form.password')}</label>
                     <div className='input-password'>
                         <input
                             type={isShowPassword ? 'text' : 'password'}
@@ -111,7 +114,7 @@ const Login = (props) => {
                         }
                     </div>
                 </div>
-                <div className='forget-password'>Forgot password ?</div>
+                <div className='forget-password'>{t('login.form.forgotpassword')}</div>
                 <div>
                     <button
                         className='btn-submit'
@@ -119,11 +122,11 @@ const Login = (props) => {
                         disabled={isLoading}
                     >
                         {isLoading === true && <ImSpinner10 className="loader-icon" />}
-                        <span>Login</span>
+                        <span>{t('login.form.login')}</span>
                     </button>
                 </div>
                 <div className='text-left' >
-                    <span onClick={() => { navigate('/') }}>&lt;&lt;Go to Homepage</span>
+                    <span onClick={() => { navigate('/') }}>&lt;&lt;{t('login.form.homepage')}</span>
                 </div>
 
             </div>

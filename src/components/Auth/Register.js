@@ -5,6 +5,8 @@ import { postRegister } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Language from '../Header/Language';
+import { useTranslation, Trans } from 'react-i18next';
+
 
 const Register = (props) => {
     const [email, setEmail] = useState('');
@@ -12,6 +14,8 @@ const Register = (props) => {
     const [username, setUsername] = useState('');
     const [isShowPassword, setIsShowPassword] = useState(false);
     const navigate = useNavigate();
+    const { t } = useTranslation();
+
 
     const validateEmail = (email) => {
         return String(email)
@@ -51,19 +55,19 @@ const Register = (props) => {
     return (
         <div className="register-container">
             <div className='header'>
-                <span>Already have an account ?</span>
-                <button onClick={() => navigate('/login')}>Login</button>
+                <span>{t('register.header')}</span>
+                <button onClick={() => navigate('/login')}>{t('register.login')}</button>
                 <Language />
             </div>
             <div className='title col-3 mx-auto'>
                 REACT_BTrung
             </div>
             <div className='welcome col-3 mx-auto'>
-                Start your journey?
+                {t('register.title')}
             </div>
             <div className='content-form col-3 mx-auto'>
                 <div className='form-group'>
-                    <label>Email (*)</label>
+                    <label>{t('register.form.email')} (*)</label>
                     <input
                         type={'email'}
                         className='form-control'
@@ -73,7 +77,7 @@ const Register = (props) => {
                     />
                 </div>
                 <div className='form-group'>
-                    <label>Password (*)</label>
+                    <label>{t('register.form.password')} (*)</label>
                     <div className='input-password'>
                         <input
                             type={isShowPassword ? 'text' : 'password'}
@@ -98,7 +102,7 @@ const Register = (props) => {
                     </div>
                 </div>
                 <div className='form-group'>
-                    <label>Username (*)</label>
+                    <label>{t('register.form.username')} (*)</label>
                     <input
                         type={'username'}
                         className='form-control'
@@ -114,10 +118,10 @@ const Register = (props) => {
                     onClick={() => handleRegister()}
 
                 >
-                    Register
+                    {t('register.form.register')}
                 </button>
                 <div className='text-left' >
-                    <span onClick={() => { navigate('/') }}>&lt;&lt;Go to Homepage</span>
+                    <span onClick={() => { navigate('/') }}>&lt;&lt;{t('register.form.homepage')}</span>
                 </div>
             </div>
 

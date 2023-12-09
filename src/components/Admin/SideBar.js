@@ -93,7 +93,7 @@ const SideBar = (props) => {
                         }}
                     >
                         <a
-                            href="https://github.com/BaTrung3232"
+                            href="https://github.com/BaTrung04"
                             target="_blank"
                             className="sidebar-btn"
                             rel="noopener noreferrer"
