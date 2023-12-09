@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Lightbox from "react-awesome-lightbox";
 import { useTranslation } from 'react-i18next';
 import { IoIosClose, IoIosCheckmark } from "react-icons/io";
+import './DetailQuiz.scss'
 
 const Question = (props) => {
     const { t } = useTranslation();

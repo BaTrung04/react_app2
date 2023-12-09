@@ -158,18 +158,18 @@ const DetailQuiz = (props) => {
     }
     return (
         <>
-            <Breadcrumb className="quiz-detai-new-header">
+            <Breadcrumb className="quiz-detai-new-header container">
                 <NavLink to='/' className='breadcrumb-item'>
-                    {t('header.home')}
+                    home
                 </NavLink>
                 <NavLink to='/users' className='breadcrumb-item'>
-                    {t('header.user')}
+                    user
                 </NavLink>
                 <Breadcrumb.Item active>
-                    {t('header.quiz')}
+                    quiz
                 </Breadcrumb.Item>
             </Breadcrumb>
-            <div className="detail-quiz-container">
+            <div className="detail-quiz-container container">
                 <div className="left-content">
                     <div className="title">
                         Quiz {quizId}: {location?.state?.quizTitle}
