@@ -46,7 +46,7 @@ const postLogin = (userEmail, userPassword) => {
     return axios.post(`api/v1/login`, {
         email: userEmail,
         password: userPassword,
-        delay: 3000
+        delay: 1000
     });
 }
 
@@ -138,13 +138,17 @@ const logOut = (email, refresh_token) => {
 
 const getOverview = () => {
     return axios.get(`api/v1/overview`)
+}
 
-
+const postUpdateProfile = (username) => {
+    return axios.post(`api/v1/profile`, {
+        username
+    })
 }
 
 export {
     postCreateNewUser, getAllUsers, putUpdateUser, putUpdateQuizForAdmin, postCreateNewQuestionForQuiz,
     DeleteUser, getUserWithPaginate, postLogin, postRegister, DeleteQuizForAdmin,
     getQuizByUser, getDataQuiz, postSubmitQuiz, postCreateNewQuiz, getAllQuizForAdmin,
-    postCreateNewAnswerForQuestion, postAssignQuiz, getQuizWithQA, postUpsertQA, logOut, getOverview
+    postCreateNewAnswerForQuestion, postAssignQuiz, getQuizWithQA, postUpsertQA, logOut, getOverview, postUpdateProfile
 }

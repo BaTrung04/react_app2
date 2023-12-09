@@ -1,0 +1,38 @@
+.profile-update {
+    margin: 20px;
+
+    .username-update {
+        margin-bottom: 15px;
+    }
+
+    .img-preview {
+        border: 1px dashed gray;
+        height: 200px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ccc;
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+
+    .btn-up-profile {
+        margin-top: 10px;
+        text-align: center;
+
+        button {
+
+            &:hover {
+                background-color: rgb(213, 205, 158);
+                color: #000;
+            }
+        }
+
+    }
+
+
+}

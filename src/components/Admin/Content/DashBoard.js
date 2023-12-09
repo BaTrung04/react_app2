@@ -40,7 +40,6 @@ const DashBoard = (props) => {
         }
     }
 
-    console.log("dataOverview: ", dataOverview)
     return (
         <div className="dashboard-container">
             <div className='title'>
